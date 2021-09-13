@@ -2,6 +2,10 @@ const express = require('express')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 
+//importing route
+const crudRoutes = require('./api/routes/routes')
+
+
 const app = express();
 
 // const productRoutes = require('./api/routes/products')
@@ -39,10 +43,10 @@ app.use((req, res, next)=>{
 })
 
 //middleware to handle routes
-app.get('/', (req,res, next)=>{
-    res.status(200).json({name: "muneeb"})
-});
-// app.use('/orders', orderRoutes);
+// app.get('/', (req,res, next)=>{
+//     res.status(200).json({name: "muneeb"})
+// });
+app.use('/api', crudRoutes);
 
 //middleware for error handling
 //if error not caught by above routes, then below works
