@@ -9,8 +9,13 @@ router.get('/ninjas', (req,res, next)=>{
     })
 })
 router.post('/ninjas', (req,res, next)=>{
-    res.status(201).json({
-        type:'POST'
+    const add = {
+        name: req.body.name,
+        rank: req.body.rank
+    }
+    res.send({
+        type: 'GET',
+        add: add
     })
 })
 router.put('/ninjas/:id', (req,res, next)=>{
@@ -19,7 +24,7 @@ router.put('/ninjas/:id', (req,res, next)=>{
     })
 })
 router.delete('/ninjas:id', (req,res, next)=>{
-    res.status(200).json({
+    res.status(201).json({
         type:'DELETE'
     })
 })
